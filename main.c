@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcaval <fcaval@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fcaval < fcaval@student.42lehavre.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:46:18 by fcaval            #+#    #+#             */
-/*   Updated: 2025/12/26 14:14:05 by fcaval           ###   ########.fr       */
+/*   Updated: 2025/12/27 21:49:37 by fcaval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,12 @@ int main(int argc, char **argv)
 
 	if (size == 2)
 		sa(&a);
-	
+	else if (size == 3)
+		for_three(&a);
+	else if (size <= 5)
+		for_five(&a, &b);
+	else
+		radix_sort(&a, &b);
+
+	return (0);
 }

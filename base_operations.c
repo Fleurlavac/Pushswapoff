@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   base_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcaval <fcaval@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fcaval < fcaval@student.42lehavre.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 13:44:06 by fcaval            #+#    #+#             */
-/*   Updated: 2025/12/26 15:58:09 by fcaval           ###   ########.fr       */
+/*   Updated: 2025/12/27 21:34:35 by fcaval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,22 @@ void	rotate(t_stack **stack)
 		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
-	last = last_node(stack);
-	
+	last = last_node(*stack);
+	tmp->next = NULL;
+	last->next = tmp;
+}
+void	reverse_rotate(t_stack **stack)
+{
+	t_stack	*tmp;
+	t_stack	*last;
+
+	if(!*stack || !(*stack)->next)
+		return ;
+	tmp = *stack;
+	while (tmp->next->next)
+		tmp = tmp -> next;
+	last = tmp -> next;
+	tmp -> next = NULL;
+	last -> next = *stack;
+	*stack = last;
 }
